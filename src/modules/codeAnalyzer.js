@@ -25,7 +25,7 @@ Analysis:
     // but defaulting to gpt-3.5-turbo for broader accessibility.
     // You might want to make the model configurable.
     const defaultOpenAIModel = "gpt-3.5-turbo";
-    const defaultOpenRouterModel = "qwen/qwen3-235b-a22b:free"; // As per user request
+    const defaultOpenRouterModel = "qwen/qwen3-235b-a22b:free";
     
     let modelToUse = process.env.CODE_ANALYSIS_MODEL;
     if (!modelToUse) {
@@ -64,28 +64,3 @@ module.exports = {
     analyzeCodebase,
     analyzeSingleCodeFile,
 };
-
-// Example Usage (for testing - ensure OPENAI_API_KEY is set):
-// const { loadCodebase } = require('./codeLoader'); // Assuming codeLoader is in the same directory
-// const path = require('path');
-//
-// (async () => {
-//     try {
-//         // Example: Load the codeLoader.js file itself for analysis
-//         const codebasePath = path.join(__dirname, '.'); // current directory
-//         const filesToAnalyze = await loadCodebase(codebasePath);
-//
-//         if (filesToAnalyze.length > 0) {
-//             console.log(`\nStarting analysis of ${filesToAnalyze.length} file(s)...`);
-//             const analyses = await analyzeCodebase(filesToAnalyze.filter(f => f.path.endsWith('codeLoader.js'))); // Analyze only one file for quick test
-//             analyses.forEach(result => {
-//                 console.log(`\nAnalysis for: ${result.path}`);
-//                 console.log(result.analysis || "No analysis content received.");
-//             });
-//         } else {
-//             console.log("No code files found to analyze.");
-//         }
-//     } catch (error) {
-//         console.error('Failed to analyze codebase:', error);
-//     }
-// })();

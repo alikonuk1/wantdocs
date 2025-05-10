@@ -62,28 +62,3 @@ module.exports = {
     analyzeDocumentation,
     analyzeSingleDocFile,
 };
-
-// Example Usage (for testing - ensure OPENAI_API_KEY is set):
-// const { loadDocumentation } = require('./docLoader'); // Assuming docLoader is in the same directory
-// const path = require('path');
-//
-// (async () => {
-//     try {
-//         // Example: Load the progress.md file for analysis
-//         const docsPath = path.join(__dirname, '../../memory-bank');
-//         const filesToAnalyze = await loadDocumentation(docsPath);
-//
-//         if (filesToAnalyze.length > 0) {
-//             console.log(`\nStarting analysis of ${filesToAnalyze.length} document(s)...`);
-//             const analyses = await analyzeDocumentation(filesToAnalyze.filter(f => f.path.endsWith('progress.md'))); // Analyze one file
-//             analyses.forEach(result => {
-//                 console.log(`\nAnalysis for: ${result.path}`);
-//                 console.log(result.analysis || "No analysis content received.");
-//             });
-//         } else {
-//             console.log("No documentation files found to analyze.");
-//         }
-//     } catch (error) {
-//         console.error('Failed to analyze documentation:', error);
-//     }
-// })();

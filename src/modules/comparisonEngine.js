@@ -118,23 +118,3 @@ module.exports = {
     compareAnalyses,
     performComparisons,
 };
-
-// Example Usage (for testing - ensure OPENAI_API_KEY is set):
-// (async () => {
-//     const sampleCodeAnalysis = {
-//         path: "src/example.js",
-//         analysis: "This module contains a function `calculateSum` that takes two numbers and returns their sum. It also has a class `DataProcessor` with a method `process`."
-//     };
-//     const sampleDocAnalysis = {
-//         path: "docs/example.md",
-//         analysis: "This document describes the `calculateSum` function, explaining its parameters and return value. It does not mention `DataProcessor`."
-//     };
-//
-//     console.log("Performing sample comparison...");
-//     const results = await performComparisons([sampleCodeAnalysis], [sampleDocAnalysis]);
-//
-//     results.forEach(res => {
-//         console.log(`\nComparison for Code: ${res.codeFile} and Doc: ${res.docFile}`);
-//         console.log(res.comparison || "No comparison content received.");
-//     });
-// })();

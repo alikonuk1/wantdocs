@@ -41,19 +41,3 @@ async function loadCodebase(dirPath) {
 module.exports = {
     loadCodebase,
 };
-
-// Example usage (for testing purposes):
-// (async () => {
-//     try {
-//         const codebasePath = path.join(__dirname, '../../'); // Example: load code from project root
-//         console.log(`Loading codebase from: ${codebasePath}`);
-//         const files = await loadCodebase(codebasePath);
-//         files.forEach(file => {
-//             console.log(`\nFile: ${file.path}`);
-//             // console.log(`Content:\n${file.content.substring(0, 200)}...`); // Print first 200 chars
-//         });
-//         console.log(`\nTotal files loaded: ${files.length}`);
-//     } catch (error) {
-//         console.error('Failed to load codebase:', error);
-//     }
-// })();

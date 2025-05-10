@@ -13,7 +13,7 @@ const provider = process.env.OPENROUTER_API_KEY ? 'openrouter' : (process.env.OP
 
 if (provider === 'openrouter') {
     const siteUrl = process.env.HTTP_REFERER || 'http://localhost:3000'; // Default or user-defined
-    const appName = process.env.X_TITLE || 'AI Doc Sync'; // Default or user-defined
+    const appName = process.env.X_TITLE || 'wantdocs'; // Default or user-defined
     try {
         llmClient = new OpenAI({
             baseURL: "https://openrouter.ai/api/v1",

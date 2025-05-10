@@ -38,20 +38,3 @@ async function loadDocumentation(dirPath) {
 module.exports = {
     loadDocumentation,
 };
-
-// Example usage (for testing purposes):
-// (async () => {
-//     try {
-//         // Assuming you have a 'docs' folder with Markdown files in the project root
-//         const docsPath = path.join(__dirname, '../../memory-bank'); // Example: load docs from memory-bank
-//         console.log(`Loading documentation from: ${docsPath}`);
-//         const documents = await loadDocumentation(docsPath);
-//         documents.forEach(doc => {
-//             console.log(`\nDocument: ${doc.path}`);
-//             // console.log(`Content:\n${doc.content.substring(0, 200)}...`);
-//         });
-//         console.log(`\nTotal documents loaded: ${documents.length}`);
-//     } catch (error) {
-//         console.error('Failed to load documentation:', error);
-//     }
-// })();

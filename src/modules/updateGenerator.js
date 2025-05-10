@@ -69,39 +69,3 @@ Updated Markdown Content:
 module.exports = {
     generateDocUpdates,
 };
-
-// Example Usage (for testing - ensure OPENAI_API_KEY is set):
-// (async () => {
-//     const sampleComparisonReport = `
-// Comparison Report:
-// 1. Key elements from the code analysis that ARE well-covered in the documentation analysis:
-//    - Function \`calculateSum\` is documented.
-// 2. Key elements from the code analysis that seem to be MISSING or INADEQUATELY covered in the documentation analysis:
-//    - Class \`DataProcessor\` and its method \`process\` are not mentioned in the documentation.
-// 3. Information in the documentation analysis that appears OUTDATED or CONTRADICTORY to the code analysis:
-//    - None noted.
-// 4. Any other notable discrepancies or areas for improvement in the documentation:
-//    - The documentation could benefit from an example usage of \`calculateSum\`.
-// `;
-//     const sampleOriginalDoc = `
-// # Example Module
-//
-// This module provides utility functions.
-//
-// ## calculateSum
-//
-// Takes two numbers and returns their sum.
-// `;
-//     const sampleDocPath = "docs/example.md";
-//     const sampleCodeAnalysis = "The code includes a class `DataProcessor` with a method `process(data)` that transforms input data.";
-//
-//     console.log("Generating sample documentation update...");
-//     const updatedDoc = await generateDocUpdates(sampleComparisonReport, sampleOriginalDoc, sampleDocPath, sampleCodeAnalysis);
-//
-//     if (updatedDoc) {
-//         console.log(`\nSuggested Update for ${sampleDocPath}:`);
-//         console.log(updatedDoc);
-//     } else {
-//         console.log("Failed to generate documentation update.");
-//     }
-// })();
