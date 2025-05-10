@@ -1,7 +1,3 @@
-#!/usr/bin/env node
-// AI Documentation Synchronizer
-// Main entry point
-
 require('dotenv').config(); // Load environment variables from .env file
 
 const yargs = require('yargs/yargs');
