@@ -1,6 +1,8 @@
 # wantdocs
 
-This tool uses AI to help keep your codebase and its Markdown documentation synchronized. It analyzes your code and existing documentation, compares them, and suggests updates for your documentation.
+I dont like to write documentation. I want to write code and have the documentation generated for me. This tool is designed to help with that.
+
+wantdocs is a command-line tool that uses AI to analyze your code and generate or update documentation based on it. It helps keep your codebase and its Markdown documentation synchronized. It analyzes your code and existing documentation, compares them, and suggests updates for your documentation.
 
 ## Features (Phase 1 - Local Files)
 
