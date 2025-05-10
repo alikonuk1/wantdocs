@@ -1,4 +1,4 @@
-# AI Documentation Synchronizer
+# wantdocs
 
 This tool uses AI to help keep your codebase and its Markdown documentation synchronized. It analyzes your code and existing documentation, compares them, and suggests updates for your documentation.
 
