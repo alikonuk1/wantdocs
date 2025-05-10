@@ -4,9 +4,9 @@ This tool uses AI to help keep your codebase and its Markdown documentation sync
 
 ## Features (Phase 1 - Local Files)
 
-- Loads JavaScript code from a specified directory.
-- Loads Markdown documentation from a specified directory.
-- Uses an LLM (currently OpenAI) to analyze code and documentation content.
+- Loads code from a specified directory.
+- Loads documentation from a specified directory if any.
+- Uses an LLM to analyze code and documentation content.
 - Compares the analyses to identify discrepancies.
 - Generates suggested updates for the documentation based on the comparison.
 - CLI interface to specify code, documentation, and output paths.
@@ -17,8 +17,8 @@ This tool uses AI to help keep your codebase and its Markdown documentation sync
 1.  **Clone the repository:**
 
     ```bash
-    git clone <repository_url>
-    cd <repository_name>
+    git clone https://github.com/alikonuk1/wantdocs
+    cd wantdocs
     ```
 
 2.  **Install dependencies:**
@@ -34,12 +34,12 @@ This tool uses AI to help keep your codebase and its Markdown documentation sync
       ```
     - Edit the `.env` file and add your OpenAI API key:
       ```
-      OPENAI_API_KEY="your_actual_openai_api_key_here"
+      OPENAI_API_KEY="your_openai_api_key
       ```
 
 ## Usage
 
-You can run the tool using the npm start script. You need to provide the path to your codebase and the path to your documentation. An output directory is optional.
+You need to provide the path to your codebase and the path to your documentation. An output directory is optional.
 
 ```bash
 npm start -- --codePath <path_to_your_codebase> --docPath <path_to_your_documentation> [-o <path_to_output_directory>]
@@ -53,7 +53,7 @@ npm start -- --codePath <path_to_your_codebase> --docPath <path_to_your_document
 
 ### Example: Generating Documentation for This Repository's Code
 
-To generate/update documentation for the AI Documentation Synchronizer tool's own source code (located in `./src`) and place/update it in the `./docs` directory, you can run:
+To generate/update documentation for the this repo's own source code (located in `./src`) and place/update it in the `./docs` directory, you can run:
 
 ```bash
 npm start -- --codePath ./src --docPath ./docs -o ./docs
@@ -68,7 +68,7 @@ This command will:
 
 **Important Note on `docPath` and Generating New Documentation:**
 
-The AI Documentation Synchronizer is primarily designed to **synchronize and update _existing_ documentation**.
+wantdocs is primarily designed to **synchronize and update _existing_ documentation**.
 
 - When you specify a `--docPath` (e.g., `./docs`), the tool expects to find Markdown files there to analyze and compare against the code.
 - If the `docPath` directory is empty or does not contain relevant Markdown files for the code in `codePath`, the tool's current comparison and update generation logic might not produce comprehensive _new_ documentation from scratch. It looks for existing content to improve.
@@ -79,18 +79,3 @@ The AI Documentation Synchronizer is primarily designed to **synchronize and upd
 Future versions may include a more explicit "generate from scratch" mode. The current version's strength is in keeping existing documentation aligned with evolving code.
 
 **Mapping Strategy Note:** The current version has a basic mapping strategy and will typically compare the analysis of the first code file found with the analysis of the first documentation file found in the `docPath` to generate an update for that first documentation file. This will be improved in future versions.
-
-## Development Notes
-
-- Core logic is in `index.js`.
-- Modules for different functionalities (loading, analysis, comparison, generation) are in the `src/modules/` directory.
-- Project planning and context documents are in the `memory-bank/` directory.
-
-## Future Enhancements (Planned)
-
-- More sophisticated mapping between code elements and documentation sections.
-- Strategies for handling large files (chunking) to avoid LLM token limits.
-- Improved prompt engineering for higher quality analysis and generation.
-- Support for other programming languages.
-- GitHub integration (Phase 2).
-- Diff-based output for suggested changes.
