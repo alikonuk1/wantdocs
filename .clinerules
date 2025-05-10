@@ -1,0 +1,52 @@
+# .clinerules: AI Documentation Synchronizer Project Intelligence
+
+## Project Overview & Core Principles
+
+- **Goal:** Automate synchronization between codebase and documentation using AI.
+- **Core Workflow:** Load Code -> Load Docs -> Analyze Code (AI) -> Analyze Docs (AI) -> Compare -> Generate Updates (AI) -> Output.
+- **Technology:** Node.js, JavaScript. LLM for AI tasks.
+- **Memory Bank:** Crucial for context. All core files (`projectbrief.md`, `productContext.md`, `systemPatterns.md`, `techContext.md`, `activeContext.md`, `progress.md`) MUST be consulted at the start of each session and updated as needed.
+
+## Cline's Workflow & Preferences
+
+- **Sequential Task Execution:** Complete one step before moving to the next.
+- **Memory Bank First:** Always read and internalize the Memory Bank files before taking action. Update them when significant changes occur or new patterns are discovered.
+- **Tool Usage:**
+  - Prefer `replace_in_file` for targeted edits.
+  - Use `write_to_file` for new files or complete overwrites.
+  - Use `execute_command` for CLI operations, ensuring commands are appropriate for macOS/zsh.
+- **Clarity in Communication:** Explain actions and reasoning, especially when referencing Memory Bank content.
+- **Iterative Development:** Build modules step-by-step as outlined in `progress.md` and `activeContext.md`.
+
+## Key Technical Patterns & Considerations (To be expanded)
+
+- **Modularity:** Strive for decoupled modules (Loaders, Analyzers, Comparer, Generator) as defined in `systemPatterns.md`.
+- **LLM Abstraction:** Plan for an abstraction layer for LLM interactions to allow flexibility (see `techContext.md`).
+- **Error Handling:** Implement robust error handling in each module.
+- **Input Validation:** Ensure inputs (paths, URLs) are validated.
+- **LLM Token Limits:** This is a known challenge. Strategies for chunking/summarizing large inputs will need to be developed and documented here.
+  - _Initial thought:_ For very large files, can we process them in smaller, logical chunks (e.g., function by function, class by class for code; section by section for docs)? How to maintain context across chunks?
+- **Prompt Engineering:** This will be critical. Document effective prompt structures here as they are developed.
+  - _Initial thought:_ Prompts should be very specific about the task (e.g., "Analyze this JavaScript function and provide a summary of its purpose, parameters, and return value" vs. "Update this documentation section based on the following code changes").
+
+## User Preferences & Feedback (To be captured from interactions)
+
+- (Placeholder for user-specific preferences observed during collaboration)
+
+## Tool Usage Patterns for This Project
+
+- **Initial Setup:** Heavy use of `write_to_file` for Memory Bank and initial project files.
+- **Development:**
+  - `write_to_file` for new modules/scripts.
+  - `replace_in_file` for iterative refinement of code and Memory Bank documents.
+  - `execute_command` for `npm install`, running linters, test runners, or the tool itself.
+- **Memory Bank Updates:**
+  - If "update memory bank" is requested, systematically review ALL memory bank files.
+  - Use `read_file` to review, then `replace_in_file` or `write_to_file` for updates.
+  - Pay special attention to `activeContext.md` and `progress.md` for current state.
+
+## Evolution of Project Decisions
+
+- (Placeholder to track significant design or architectural changes and their rationale)
+
+This file will be updated as I learn more about the project and our collaborative workflow.
