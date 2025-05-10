@@ -1,7 +1,0 @@
-# This directory is intended for documentation related to the src/ codebase.
-
-# For the AI Documentation Synchronizer to effectively update docs,
-
-# this directory should ideally contain initial/placeholder Markdown files
-
-# corresponding to the code in src/ if you are using it as the --docPath input.
