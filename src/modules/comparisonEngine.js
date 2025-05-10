@@ -1,4 +1,4 @@
-const { getOpenAICompletion } = require('./llmService');
+const { getLLMCompletion, provider } = require('./llmService');
 
 /**
  * Compares a single code analysis with a single documentation analysis using an LLM.
@@ -43,7 +43,15 @@ Comparison Report:
 `;
 
     // This task might benefit from a more capable model if available (e.g., gpt-4)
-    return getOpenAICompletion(prompt, "gpt-3.5-turbo", "You are a meticulous comparison assistant.");
+    const defaultOpenAIModel = "gpt-3.5-turbo";
+    const defaultOpenRouterModel = "qwen/qwen3-235b-a22b:free";
+
+    let modelToUse = process.env.COMPARISON_MODEL;
+    if (!modelToUse) {
+        modelToUse = provider === 'openrouter' ? defaultOpenRouterModel : defaultOpenAIModel;
+    }
+
+    return getLLMCompletion(prompt, modelToUse, "You are a meticulous comparison assistant.");
 }
 
 /**

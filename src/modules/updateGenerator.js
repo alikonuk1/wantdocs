@@ -1,4 +1,4 @@
-const { getOpenAICompletion } = require('./llmService');
+const { getLLMCompletion, provider } = require('./llmService');
 
 /**
  * Generates updated documentation content based on a comparison report.
@@ -55,7 +55,15 @@ Updated Markdown Content:
 
     // This task is complex and might benefit from a more capable model (e.g., gpt-4).
     // It also requires careful prompt engineering.
-    return getOpenAICompletion(prompt, "gpt-3.5-turbo", "You are an expert technical writing assistant specializing in updating documentation.");
+    const defaultOpenAIModel = "gpt-3.5-turbo";
+    const defaultOpenRouterModel = "qwen/qwen3-235b-a22b:free";
+
+    let modelToUse = process.env.UPDATE_GENERATOR_MODEL;
+    if (!modelToUse) {
+        modelToUse = provider === 'openrouter' ? defaultOpenRouterModel : defaultOpenAIModel;
+    }
+    
+    return getLLMCompletion(prompt, modelToUse, "You are an expert technical writing assistant specializing in updating documentation.");
 }
 
 module.exports = {

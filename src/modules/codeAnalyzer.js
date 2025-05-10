@@ -1,4 +1,4 @@
-const { getOpenAICompletion } = require('./llmService');
+const { getLLMCompletion, provider } = require('./llmService');
 
 /**
  * Analyzes a single piece of code using the LLM.
@@ -24,7 +24,15 @@ Analysis:
     // Using a model that's good for code analysis, like gpt-4 if available,
     // but defaulting to gpt-3.5-turbo for broader accessibility.
     // You might want to make the model configurable.
-    return getOpenAICompletion(prompt, "gpt-3.5-turbo", "You are an expert code analysis assistant.");
+    const defaultOpenAIModel = "gpt-3.5-turbo";
+    const defaultOpenRouterModel = "qwen/qwen3-235b-a22b:free"; // As per user request
+    
+    let modelToUse = process.env.CODE_ANALYSIS_MODEL;
+    if (!modelToUse) {
+        modelToUse = provider === 'openrouter' ? defaultOpenRouterModel : defaultOpenAIModel;
+    }
+
+    return getLLMCompletion(prompt, modelToUse, "You are an expert code analysis assistant.");
 }
 
 /**

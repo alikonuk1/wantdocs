@@ -1,4 +1,4 @@
-const { getOpenAICompletion } = require('./llmService');
+const { getLLMCompletion, provider } = require('./llmService');
 
 /**
  * Analyzes a single Markdown documentation file using the LLM.
@@ -22,7 +22,15 @@ ${docContent}
 Analysis:
 `;
     // Using a model that's good for text analysis.
-    return getOpenAICompletion(prompt, "gpt-3.5-turbo", "You are an expert documentation analysis assistant.");
+    const defaultOpenAIModel = "gpt-3.5-turbo";
+    const defaultOpenRouterModel = "qwen/qwen3-235b-a22b:free";
+
+    let modelToUse = process.env.DOC_ANALYSIS_MODEL;
+    if (!modelToUse) {
+        modelToUse = provider === 'openrouter' ? defaultOpenRouterModel : defaultOpenAIModel;
+    }
+    
+    return getLLMCompletion(prompt, modelToUse, "You are an expert documentation analysis assistant.");
 }
 
 /**
