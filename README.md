@@ -4,16 +4,6 @@ I don’t like writing documentations. I’d rather focus on coding and have the
 
 wantdocs is a command-line tool that uses AI to analyze your code and generate or update documentation based on it. It helps keep your codebase and its Markdown documentation synchronized. It analyzes your code and existing documentation, compares them, and suggests updates for your documentation.
 
-## Features (Phase 1 - Local Files)
-
-- Loads code from a specified directory.
-- Loads documentation from a specified directory if any.
-- Uses an LLM to analyze code and documentation content.
-- Compares the analyses to identify discrepancies.
-- Generates suggested updates for the documentation based on the comparison.
-- CLI interface to specify code, documentation, and output paths.
-- Uses a `.env` file for API key management.
-
 ## Setup
 
 1.  **Clone the repository:**
